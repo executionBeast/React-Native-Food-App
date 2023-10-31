@@ -1,5 +1,17 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
+
+android
+ios/
+.vscode
+yarn.lock
+yarn-error.log
+
+
+.gitignore
+.gitattributes
+
+
 # dependencies
 node_modules/
 

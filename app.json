@@ -2,9 +2,21 @@
   "expo": {
     "name": "food-app",
     "slug": "food-app",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "5244ad72-0a62-4ee8-8306-4ee5959d9634"
+      }
+    },
+    "owner": "mrityunjaykumar",
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/5244ad72-0a62-4ee8-8306-4ee5959d9634"
+    },
+    "android": {},
+    "ios": {}
   }
 }

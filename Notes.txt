@@ -1,0 +1,36 @@
+# Install React Navigation core
+npm install @react-navigation/native
+
+# Install the stack navigator for screen navigation
+npm install @react-navigation/stack
+
+
+above installed-----
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:installDebug'.
+> java.util.concurrent.ExecutionException: com.android.builder.testing.api.DeviceException: com.android.ddmlib.InstallException: INSTALL_FAILED_UPDATE_INCOMPATIBLE: Existing package com.foodapp signatures do not match newer version; ignoring!
+
+
+> Task :app:installDebug FAILED
+286 actionable tasks: 15 executed, 271 up-to-date
+
+info 💡 Tip: Make sure that you have set up your development environment correctly, by running react-native doctor. To read more about doctor command visit: https://github.com/react-native-community/cli/blob/main/packages/cli-doctor/README.md#doctor 
+
+Unable to install /home/sujit/Documents/MERNSTACK/ReactNative/food-app/android/app/build/outputs/apk/debug/app-debug.apk
+com.android.ddmlib.InstallException: INSTALL_FAILED_UPDATE_INCOMPATIBLE: Existing package com.foodapp signatures do not match newer version; ignoring!
+
+
+
+
+Components
+Screens
+App.js
+app.json
+babel.config.js
+eas.json
+index.js
+metro.config.json
+package.json
