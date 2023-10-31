@@ -25,6 +25,7 @@ export default function DragFlatList() {
     },
   
   ])
+  
   const [orderedFood, setOrderedFood] = useState([
     {
       id:1,
@@ -78,7 +79,7 @@ export default function DragFlatList() {
   return (
 
     <View style={styles.container}>
-<Text style={{marginTop:1}}>{JSON.stringify(FoodLists)}</Text>
+<Text style={{marginTop:200}}>{JSON.stringify(FoodLists)}</Text>
 <Text style={{marginTop:4}}>{JSON.stringify(orderedFood)}</Text>
 
 
@@ -129,7 +130,6 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     padding: 10,
     margin: 3,
-    
     borderRadius: 8,
   },
   FlatList:{

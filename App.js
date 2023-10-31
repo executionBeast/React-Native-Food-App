@@ -13,9 +13,11 @@ const Stack = createStackNavigator();
 
   return (
     <NavigationContainer>
-    <Stack.Navigator>
+    <Stack.Navigator >
       <Stack.Screen key={1} name="HomePage" options={{headerShown:false}} component={HomePage} />
       <Stack.Screen key={2} name="FinalFoodList" options={{headerShown:false}} component={FinalFoodList} />
+      
+
       
      
     </Stack.Navigator>

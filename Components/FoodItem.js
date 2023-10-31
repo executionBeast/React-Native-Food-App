@@ -1,11 +1,12 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,TouchableWithoutFeedback } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {Feather} from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const FoodItem = ({food,setName,setPrice,deleteFoodItem,setFoodToEdit,setModalVisible}) => {
+
+const FoodItem = ({drag,food,setName,setPrice,deleteFoodItem,setFoodToEdit,setModalVisible}) => {
 
   const onEditClick= async (food)=>{
     // console.log("food is ",food)
@@ -20,9 +21,14 @@ const FoodItem = ({food,setName,setPrice,deleteFoodItem,setFoodToEdit,setModalVi
     
 
     <View style={styles.FoodItemList}>
-      <MaterialIcons style={{marginLeft:4}} name="drag-indicator" size={24} color="black" />
+      {/* <MaterialIcons style={{marginLeft:4}} name="drag-indicator" size={24} color="#5F5F5F" /> */}
+      <TouchableWithoutFeedback onLongPress={drag}
+     delayLongPress={50} >
+      <MaterialIcons name="drag-indicator" size={24} color="black" />
+     
+      </TouchableWithoutFeedback>
       <Text style={styles.foodtext}>{food.name}</Text>
-      <Text style={{fontSize:16}} >Price: </Text>
+      <Text style={{fontSize:16,color:'#5F5F5F'}} >Price: </Text>
       <Text style={styles.foodtext}>₹ {food.price} </Text>
     <View style={styles.divider}></View>
     
@@ -40,7 +46,7 @@ const FoodItem = ({food,setName,setPrice,deleteFoodItem,setFoodToEdit,setModalVi
     />
 
      <MaterialCommunityIcons
-          style={{marginRight:'3%'}}
+          style={{marginRight:'4%'}}
           name="delete-outline"
           size={28}
           color="black"
@@ -71,22 +77,24 @@ const styles = StyleSheet.create({
     flex: 1,
   },
  FoodItemList: {
-    backgroundColor: "#ededed",
+    backgroundColor: "#F4F4F4",
     borderRadius: 10,
     margin: 10,
     flexDirection: "row",
     alignItems: "center",
+    justifyContent:'center',
     borderWidth: 1,
-    borderColor: "grey",
+    borderColor: "#E2E2E2",
     height:58,
+    width:'95%'
     
   },
 
   divider:{
-    marginRight:20,
+    marginRight:16,
     height:'100%',
     borderLeftWidth:1,
-    borderColor:'black'
+    borderColor:'#E2E2E2'
   }
 
 })

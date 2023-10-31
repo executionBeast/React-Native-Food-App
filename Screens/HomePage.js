@@ -4,17 +4,21 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
-  FlatList,
   TouchableWithoutFeedback
   
 
 } from "react-native";
+import DraggableFlatList from 'react-native-draggable-flatlist';
+
+
 import { useEffect, useState } from "react";
 import { Ionicons } from '@expo/vector-icons';
 import FoodItem from "../Components/FoodItem";
 import { StatusBar } from "expo-status-bar";
 import AddFoodModal from "../Components/AddFoodModal";
-import DraggableFlatList from 'react-native-draggable-flatlist';
+
+
+
 import { MaterialIcons } from '@expo/vector-icons';
 
 
@@ -40,6 +44,15 @@ const HomePage = ({ navigation }) => {
   
   ]);
   const [orderedFood, setOrderedFood] = useState(FoodList);
+
+
+  const renderItem = ({ item, index, drag, isActive }) => {
+    return (
+
+<Text>Render List</Text>
+);
+  };
+
 
   //addFoodItem
   const addFoodItem = (name, price) => {
@@ -79,16 +92,15 @@ const HomePage = ({ navigation }) => {
   };
 
   return (
-      
-    <View style={styles.container}>
+  
+  <View style={styles.container}>
     <StatusBar/>
       <View style={styles.Header}>
         
         <Text style={styles.Heading}>Food List</Text>
-      </View>
+  
 
       <View style={styles.FoodItemContainerDiv}>
-        {
           <ScrollView style={styles.FoodItemContainer}>
             {FoodList.map((data) => {
               return (
@@ -105,35 +117,21 @@ const HomePage = ({ navigation }) => {
               );
             })}
           </ScrollView>
-      }
+
+    <View style={
+        {
+          width:'94%',
+          borderStyle: 'dashed',
+          borderColor:'#d1caca',
+          borderTopWidth:1.8,
+          marginTop:'4%',
+          marginBottom:'6%'
+        }}>
+
+    </View>
 
 
-<View
-          style={{
-            flexDirection:'row',
-            flex: 1,
-            borderStyle: 'dashed',
-            borderColor: 'gray',
-            borderWidth:1,
-          }}
-        />
-      </View>
-
-
-<View style={
-{
-  width:'94%',
-  marginTop:8,
-  marginBottom:8,
-  backgroundColor:'grey',
-  borderColor:'grey',
-  borderWidth:2
-
-
-}
-
-}></View>
-      <View style={styles.addFoodBtnDiv}>
+    <View style={styles.addFoodBtnDiv}>
           <TouchableOpacity
             style={styles.addFoodBtn}
             onPress={() => {
@@ -147,7 +145,9 @@ const HomePage = ({ navigation }) => {
           </TouchableOpacity>
           
       </View>
-         
+
+      </View>     
+      </View>
 
       <View style={styles.AddFoodModalDiv}>
           <AddFoodModal
@@ -165,14 +165,19 @@ const HomePage = ({ navigation }) => {
           />
       </View>
 
+
+
+
+
+
       <View style={styles.FinalFoodBtn}>
           <TouchableOpacity
-            style={{width:'100%', alignItems:'center',justifyContent:'center'}}
+            style={{width:'100%', alignItems:'center',justifyContent:'center',padding:12}}
             onPress={() => {
               navigation.navigate("FinalFoodList", FoodList);
             }}
           >
-            <Text style={{ fontSize: 24 }}>Final Food List</Text>
+            <Text style={{ fontWeight:'800',fontSize: 18,color:'white' }}>Final Food List</Text>
           </TouchableOpacity>
       </View>
         
@@ -185,10 +190,10 @@ export default HomePage;
 const styles = StyleSheet.create({
   container: 
   {
+    flex:1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: 'space-between',
-    alignContent: "space-between",
+    justifyContent:'space-between' ,
     // position:'relative'
     flexDirection: "column",
   },
@@ -199,7 +204,11 @@ const styles = StyleSheet.create({
   // },
 
 Header:{
+  justifyContent:'center',
+  alignItems:'center',
+  width:'100%',
   marginTop:'14%',
+  // backgroundColor:'red',
 },
 
   Heading: 
@@ -207,37 +216,22 @@ Header:{
     fontSize: 40,
     fontWeight:'bold',
     alignItems: "center",
+
+
   },
+
   FoodItemContainerDiv:{
     width:'100%',
-    alignItems:'space-between',
-
-  },
-
-  image:
-  {
-    height:'100%',
-    width:'100%',
-  },
-  ImageDiv:
-  {
-    overflow:'hidden',
-    flexWrap:'wrap',
-    marginTop: 20,
-    width: "100%",
-    maxHeight: "100%",
-    backgroundColor: "#ebebeb",
-    // backgroundColor: "white",
-
     alignItems:'center',
-    justifyContent:'center',
-    borderRadius:20,
+  justifyContent:'center'
 
-  
-},
+
+  },
+
+
 
   FoodItemContainer: {
-    marginTop: 20,
+    padding:0,
     width: "100%",
     maxHeight: "100%",
     // backgroundColor: "#c8e3c5",
@@ -254,7 +248,7 @@ Header:{
     backgroundColor: "#E5F5EC",
     borderRadius: 8,
     borderWidth: 2,
-    borderColor: "green",
+    borderColor: "#7ECB9C",
 
     
   },
@@ -262,7 +256,6 @@ Header:{
 
 
   addFoodBtnDiv: {
-    margin:14,
     width: "100%",
     alignItems: 'center',
     justifyContent:'center',
@@ -278,10 +271,9 @@ Header:{
     marginTop: 16,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#e4ffca",
+    backgroundColor: "green",
     borderRadius: 8,
-    borderWidth: 2,
-    borderColor: "green",
+    marginBottom:18
   },
 
   FoodItemScreen: 
@@ -293,13 +285,3 @@ Header:{
   
 });
 
-{
-  /* <View style={styles.button}>
-  <Button
-    title="Go to FinalFoodList"
-    onPress={()=>{
-      navigation.navigate("FinalFoodList")
-    }}
-  ></Button>
-</View>  */
-}

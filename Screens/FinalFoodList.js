@@ -1,6 +1,32 @@
 import { Button,StyleSheet,Text,View, Image, TouchableOpacity} from "react-native"
 
+
 const FinalFoodList = ({navigation, route})=>{
+
+  const JsonData = ({data})=>{
+      
+    return(
+        <View>
+
+        <Text style={styles.dataText}>{'{'}</Text>
+      <Text key={data.key} style={styles.dataText} >
+        {
+          `  name: "${data.name}",`
+        }
+        </Text>
+
+        <Text key={data.key} style={styles.dataText} >
+        {
+          `  price: "${data.name}",`
+        }
+        </Text>
+    <Text style={styles.dataText}>{'},'}</Text>
+        
+</View>
+      )
+
+  }
+
   const FoodList = route.params;
   return(
 <View style={styles.container}>
@@ -13,19 +39,16 @@ const FinalFoodList = ({navigation, route})=>{
         
           {
           <View>
+              
               <Text style={styles.dataText}>{'['}</Text>
-
             {
             FoodList.map(data=>{
               return(
-                
-                <Text key={data.key} style={styles.dataText} >
-                  {
-                    `name: ${data.name}, price: ${data.price}`
-                  },
-                  </Text>
-                
-              )
+<View>
+                <JsonData key={data.key} data={data}/>
+      </View>        
+                )
+
             }) 
               
               }
@@ -40,12 +63,12 @@ const FinalFoodList = ({navigation, route})=>{
 
   <View style={styles.FinalFoodBtn}>
           <TouchableOpacity
-            style={{width:'100%', alignItems:'center',justifyContent:'center'}}
+           style={{width:'100%', alignItems:'center',justifyContent:'center',padding:12}}
             onPress={() => {
               navigation.navigate("HomePage");
             }}
           >
-            <Text style={{ fontSize: 24 }}>Go to Home Screen</Text>
+            <Text style={{ fontWeight:'800',fontSize: 18,color:'white' }}>Go to Home Screen</Text>
           </TouchableOpacity>
       </View>
 
@@ -61,7 +84,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
   },
 
   heading:{
@@ -73,22 +96,26 @@ const styles = StyleSheet.create({
   },
 
   headingText:{
-    fontSize:48,
-    color:'green'
+    fontSize:38,
+    marginTop:'8%',
+    color:'black'
 
   },
 
   dataDiv:{
     height:'70%',
-    width:'100%',
-    alignItems:'center',
+    width:'90%',
     marginBottom:30,
-    justifyContent:'center',
+    backgroundColor:'#EAE8E8',
+    padding:8,
+    borderRadius:12,
+    paddingLeft:8,
 
   },
   dataText:{
-    fontSize:30,
-    color:'green'
+
+    fontSize:20,
+    color:'black'
     // marginTop:48
   },
 
@@ -96,60 +123,15 @@ const styles = StyleSheet.create({
    {
     padding: 8,
     width: "95%",
-    marginTop: 30,
+    marginTop: 40,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#e4ffca",
+    backgroundColor: "green",
     borderRadius: 8,
-    borderWidth: 2,
-    borderColor: "green",
+    marginBottom:18
   },
 
-  ImageDiv:
-  {
-    overflow:'hidden',
-    flexWrap:'wrap',
-    marginTop: 20,
-    width: "100%",
-    maxHeight: "100%",
-    backgroundColor: "#e4ffca",
-    alignItems:'flex-start',
-    justifyContent:'flex-end',
-    borderRadius:20, 
-    elevation:5,
-    shadowColor:'black',
-    padding:13,
-
-  
-},
-image:
-{
-  height:'100%',
-  width:'100%',
-  borderRadius:20, 
 
  
-},
-  // HomeBtnDiv:{
-  //   flexWrap:'wrap',
-  //   width:'100%'
-
-  // },
-  // HomeBtnText:{
-  //   fontSize:32,
-  // },
-
-
-  // HomeBtn:{
-  //   alignItems:'center',
-  //   justifyContent:'center',
-  //   width:'100%',
-  //   padding:16,
-  //   borderRadius:16,
-  //   backgroundColor:'green',
-
-    
-  // }
-
 
 });
