@@ -30,7 +30,7 @@ const HomePage = ({ navigation }) => {
     {
       id:2,
       name:'Apple',
-      price:120,
+      price:20,
     },
  
   
