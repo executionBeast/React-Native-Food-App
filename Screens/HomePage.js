@@ -22,19 +22,18 @@ const HomePage = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [foodToEdit, setFoodToEdit] = useState(null);
   const [FoodList, setFoodList] = useState([
+    {id:1,
+      name:"Banana",
+      price:100
+    },
+    
     {
-      id:1,
+      id:2,
       name:'Apple',
-      price:122,
+      price:120,
     },
-    {id:2,
-      name:"Banana",
-      price:123
-    },
-    {id:3,
-      name:"Banana",
-      price:123
-    },
+ 
+  
   
   ]);
 

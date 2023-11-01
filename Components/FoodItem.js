@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     marginBottom:2,
   },
   foodtext:{
+    flexDirection:'row',
     marginLeft:4,
     color: "black",
     fontWeight: "bold",
