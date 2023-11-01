@@ -1,5 +1,5 @@
 // AddFoodModal.js
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, View, Text, TextInput, Button, StyleSheet, TouchableOpacity,SafeAreaView } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
@@ -24,14 +24,13 @@ function AddFoodModal({ visible, onSave,onUpdate, onCancel, foodToEdit,name,pric
 
   return (
     <SafeAreaView>
-    <Modal visible={visible} animationType="slide" transparent={true}>
+      <Modal visible={visible} animationType="slide" transparent={true}>
       
-      <View style={styles.modalBackdrop}>
+        <View style={styles.modalBackdrop}>
         
         <View style={styles.modalContent}>
-<View style={styles.topOfModalContent}>
-        {/* <Button  title="Cancel"  /> */}
-        <Entypo style={styles.cancelButton } name="cross" size={38} color="black" onPress={onCancel}/>
+        <View style={styles.topOfModalContent}>
+          <Entypo style={styles.cancelButton } name="cross" size={38} color="black" onPress={onCancel}/>
 
           <Text style={styles.heading }>Add Food</Text>
           </View>

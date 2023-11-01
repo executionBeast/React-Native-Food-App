@@ -1,6 +1,5 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { StyleSheet, Text, View,TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {Feather} from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';

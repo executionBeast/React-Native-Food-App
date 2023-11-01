@@ -5,7 +5,6 @@ import React from 'react';
 
 import HomePage from './Screens/HomePage';
 import FinalFoodList from './Screens/FinalFoodList';
-import DragFlatList from './Screens/DragFlatList';
 
 export default function App() {
 

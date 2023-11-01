@@ -2,38 +2,33 @@ import { Button,StyleSheet,Text,View, Image, TouchableOpacity} from "react-nativ
 
 
 const FinalFoodList = ({navigation, route})=>{
-
-  
   const FoodList = route.params;
+  
   return(
-<View style={styles.container}>
-  <View style={styles.heading}>
+      <View style={styles.container}>
+         <View style={styles.heading}>
 
-         <Text style={styles.headingText}>Final Food List</Text>
-  </View>
+            <Text style={styles.headingText}>Final Food List</Text>
+         </View>
 
-  <View style={styles.dataDiv}>
-        
-     
-          <Text style={{
-            fontSize:18
-          }}> {JSON.stringify(FoodList)}</Text>
-        
-  </View>
+      <View style={styles.dataDiv}>
+        <Text style={{ fontSize:18 }}> {JSON.stringify(FoodList)} </Text>
+            
+      </View>
 
-  <View style={styles.FinalFoodBtn}>
-          <TouchableOpacity
-           style={{width:'100%', alignItems:'center',justifyContent:'center',padding:12}}
-            onPress={() => {
-              navigation.navigate("HomePage");
-            }}
-          >
-            <Text style={{ fontWeight:'800',fontSize: 18,color:'white' }}>Go to Home Screen</Text>
-          </TouchableOpacity>
+      <View style={styles.FinalFoodBtn}>
+            <TouchableOpacity
+                style={{width:'100%', alignItems:'center',justifyContent:'center',padding:12}}
+                onPress={() => {
+                  navigation.navigate("HomePage");
+                }}
+              >
+              <Text style={{ fontWeight:'800',fontSize: 18,color:'white' }}>Go to Home Screen</Text>
+              </TouchableOpacity>
       </View>
 
 
-</View>
+  </View>
   )
 }
 
