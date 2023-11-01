@@ -109,10 +109,9 @@ const HomePage = ({ navigation }) => {
     <View style={styles.container}>
       <StatusBar/>
       <View style={styles.Header}>
-        <View>
+<View>
             <Text style={styles.Heading}>Food List</Text>
-        </View>
-
+            </View>
       <View style={styles.FoodItemContainerDiv}>
 {/* ------------------Draggable FlatList------------------------------------------ */}
       
@@ -122,7 +121,6 @@ const HomePage = ({ navigation }) => {
         style={{
           // height:'100%',
           width:'100%',
-          maxHeight:700,
         }}
           data={FoodList}
           keyExtractor={(item) => item.id.toString()}
@@ -227,14 +225,16 @@ Header:{
     fontWeight:'bold',
     alignItems: "center",
     paddingTop:40,
-    paddingBottom:10
+    // backgroundColor:'red'
 
 
   },
 
   FoodItemContainerDiv:{
+    // backgroundColor:'yellow',
     width:'100%',
-  justifyContent:'center'
+  justifyContent:'center',
+  maxHeight:'70%'
 
 
   },
