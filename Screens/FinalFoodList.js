@@ -3,30 +3,7 @@ import { Button,StyleSheet,Text,View, Image, TouchableOpacity} from "react-nativ
 
 const FinalFoodList = ({navigation, route})=>{
 
-  const JsonData = ({data})=>{
-      
-    return(
-        <View>
-
-        <Text style={styles.dataText}>{'{'}</Text>
-      <Text key={data.key} style={styles.dataText} >
-        {
-          `  name: "${data.name}",`
-        }
-        </Text>
-
-        <Text key={data.key} style={styles.dataText} >
-        {
-          `  price: "${data.name}",`
-        }
-        </Text>
-    <Text style={styles.dataText}>{'},'}</Text>
-        
-</View>
-      )
-
-  }
-
+  
   const FoodList = route.params;
   return(
 <View style={styles.container}>
@@ -37,27 +14,10 @@ const FinalFoodList = ({navigation, route})=>{
 
   <View style={styles.dataDiv}>
         
-          {
-          <View>
-              
-              <Text style={styles.dataText}>{'['}</Text>
-            {
-            FoodList.map(data=>{
-              return(
-<View>
-                <JsonData key={data.key} data={data}/>
-      </View>        
-                )
-
-            }) 
-              
-              }
-              <Text style={styles.dataText} >{']'}</Text>
-
-              </View>
-          
-  
-          }
+     
+          <Text style={{
+            fontSize:18
+          }}> {JSON.stringify(FoodList)}</Text>
         
   </View>
 

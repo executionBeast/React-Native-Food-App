@@ -4,6 +4,7 @@ import { StyleSheet, Text, View,TouchableWithoutFeedback } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {Feather} from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const FoodItem = ({drag,food,setName,setPrice,deleteFoodItem,setFoodToEdit,setModalVisible}) => {
@@ -22,13 +23,14 @@ const FoodItem = ({drag,food,setName,setPrice,deleteFoodItem,setFoodToEdit,setMo
 
     <View style={styles.FoodItemList}>
       {/* <MaterialIcons style={{marginLeft:4}} name="drag-indicator" size={24} color="#5F5F5F" /> */}
-      <TouchableWithoutFeedback onLongPress={drag}
-     delayLongPress={50} >
-      <MaterialIcons name="drag-indicator" size={24} color="black" />
-     
-      </TouchableWithoutFeedback>
+      <TouchableOpacity
+      onLongPress={drag}
+     delayLongPress={0} >
+      <MaterialIcons name="drag-indicator" size={45} color="#5F5F5F" />
+      </TouchableOpacity>
+      
       <Text style={styles.foodtext}>{food.name}</Text>
-      <Text style={{fontSize:16,color:'#5F5F5F'}} >Price: </Text>
+      <Text style={{fontSize:18,color:'#5F5F5F'}} >Price: </Text>
       <Text style={styles.foodtext}>₹ {food.price} </Text>
     <View style={styles.divider}></View>
     
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
     marginLeft:4,
     color: "black",
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 20,
     flex: 1,
   },
  FoodItemList: {
